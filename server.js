@@ -15,6 +15,16 @@ const app = express();
 app.use(cors());
 app.use(express.json());
 
+//middleware
+app.use(express.json({ limit: "5mb" }));
+app.use(
+  cors({
+    origin: "*",
+    methods: ["GET", "PUT", "POST", "DELETE", "OPTIONS", "PATCH"],
+    credentials: true,
+  })
+);
+
 app.get("/", async (req, res) => {
   res.status(200).send({
     message: "Hello from streamfling AI",
