@@ -1,9 +1,6 @@
 import express from "express";
-import * as dotenv from "dotenv";
 import cors from "cors";
 import { Configuration, OpenAIApi } from "openai";
-
-dotenv.config();
 
 const configuration = new Configuration({
   apiKey: process.env.OPENAI_API_KEY,
@@ -19,7 +16,7 @@ const app = express();
 app.use(express.json({ limit: "5mb" }));
 app.use(
   cors({
-    origin: "https://streamflin-be.herokuapp.com/",
+    origin: "http://localhost:4200/",
     methods: ["GET", "PUT", "POST", "DELETE", "OPTIONS", "PATCH"],
     credentials: true,
   })
