@@ -19,7 +19,7 @@ const app = express();
 app.use(express.json({ limit: "5mb" }));
 app.use(
   cors({
-    origin: "*",
+    origin: "https://streamflin-be.herokuapp.com/",
     methods: ["GET", "PUT", "POST", "DELETE", "OPTIONS", "PATCH"],
     credentials: true,
   })
