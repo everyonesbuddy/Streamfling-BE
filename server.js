@@ -25,11 +25,11 @@ app.use(
   })
 );
 
-// app.get("/", async (req, res) => {
-//   res.status(200).send({
-//     message: "Hello from streamfling AI",
-//   });
-// });
+app.get("/", async (req, res) => {
+  res.status(200).send({
+    message: "Hello from streamfling AI",
+  });
+});
 
 app.post("/", async (req, res) => {
   try {
