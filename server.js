@@ -25,13 +25,13 @@ app.use(
   })
 );
 
-app.get("/", async (req, res) => {
-  res.status(200).send({
-    message: "Hello from streamfling AI",
-  });
-});
+// app.get("/", async (req, res) => {
+//   res.status(200).send({
+//     message: "Hello from streamfling AI",
+//   });
+// });
 
-app.post("/ai", async (req, res) => {
+app.post("/", async (req, res) => {
   try {
     const prompt = req.body.prompt;
 
