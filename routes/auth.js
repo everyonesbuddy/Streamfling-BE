@@ -1,18 +1,18 @@
-import express from "express";
-const bcrypt = require("bcrypt");
-const jwt = require("jsonwebtoken");
-const stripe = require("stripe")(process.env.STRIPE_SECRET_KEY);
+// import express from "express";
+// const bcrypt = require("bcrypt");
+// const jwt = require("jsonwebtoken");
+// const stripe = require("stripe")(process.env.STRIPE_SECRET_KEY);
 
-const router = express.Router();
+// const router = express.Router();
 
-const Auth = require("../models/auth");
+// const Auth = require("../models/auth");
 
-import { register, login } from "../controllers/auth";
+// import { register, login } from "../controllers/auth";
 
-//new /register
-router.post("/register", register);
+// //new /register
+// router.post("/register", register);
 
-//new /login
-router.post("/login", login);
+// //new /login
+// router.post("/login", login);
 
-module.exports = router;
+// module.exports = router;
