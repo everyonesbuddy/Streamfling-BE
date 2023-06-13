@@ -1,11 +1,8 @@
 import express from "express";
 import * as dotenv from "dotenv";
-import mongoose from "mongoose";
 import cors from "cors";
-import { readdirSync } from "fs";
 import { Configuration, OpenAIApi } from "openai";
 
-const morgan = require("morgan");
 dotenv.config();
 
 const configuration = new Configuration({
