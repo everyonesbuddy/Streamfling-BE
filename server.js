@@ -4,8 +4,8 @@ import * as dotenv from "dotenv";
 import cors from "cors";
 import { Configuration, OpenAIApi } from "openai";
 import { readdirSync } from "fs";
-const Auth = require("../models/auth");
-import { hashPassword, comparePassword } from "../helpers/auth";
+const Auth = require("../server/models/auth");
+import { hashPassword, comparePassword } from "../server/helpers/auth";
 import jwt from "jsonwebtoken";
 const stripe = require("stripe")(process.env.STRIPE_SECRET_KEY);
 
