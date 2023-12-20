@@ -37,18 +37,28 @@ app.post("/", async (req, res) => {
   try {
     const prompt = req.body.prompt;
 
-    const response = await openai.createCompletion({
-      model: "text-davinci-003",
-      prompt: `${prompt}`,
-      temperature: 0.7,
-      max_tokens: 200,
+    const response = await openai.chat.completions.create({
+      model: "gpt-3.5-turbo",
+      messages: [
+        {
+          role: "system",
+          content:
+            "You are a sports betting assistant, you provide player analysis and more",
+        },
+        {
+          role: "user",
+          content: `${prompt}`,
+        },
+      ],
+      temperature: 1,
+      max_tokens: 256,
       top_p: 1,
-      frequency_penalty: 0.5,
+      frequency_penalty: 0,
       presence_penalty: 0,
     });
 
     res.status(200).send({
-      bot: response.data.choices[0].text,
+      bot: response.data.choices[0].message,
     });
   } catch (error) {
     console.log(error);
