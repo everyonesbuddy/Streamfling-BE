@@ -62,11 +62,20 @@ app.post("/", async (req, res) => {
     });
 
     res.status(200).send({
-      bot: response.data.choices[0].message,
+      bot: response.choices[0].message,
     });
   } catch (error) {
-    console.log(error);
-    res.status(500).send({ error });
+    // console.log(error);
+    // res.status(500).send({ error });
+    if (error instanceof OpenAI.APIError) {
+      console.error(error.status); // e.g. 401
+      console.error(error.message); // e.g. The authentication token you passed was invalid...
+      console.error(error.code); // e.g. 'invalid_api_key'
+      console.error(error.type); // e.g. 'invalid_request_error'
+    } else {
+      // Non-API error
+      console.log(error);
+    }
   }
 });
 
