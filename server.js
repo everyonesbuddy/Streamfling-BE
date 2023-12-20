@@ -50,13 +50,6 @@ app.post("/", async (req, res) => {
           content: `${prompt}`,
         },
       ],
-      // prompt: `${prompt}`,
-      // temperature: 0.7,
-      // max_tokens: 200,
-      // top_p: 1,
-      // frequency_penalty: 0.5,
-      // presence_penalty: 0,
-
       temperature: 1,
       max_tokens: 256,
       top_p: 1,
