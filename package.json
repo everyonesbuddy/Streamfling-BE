@@ -21,7 +21,7 @@
     "mongoose-unique-validator": "^4.0.0",
     "morgan": "^1.10.0",
     "nodemon": "^2.0.22",
-    "openai": "^4.0.0",
+    "openai": "^3.2.1",
     "stripe": "^12.9.0"
   }
 }
