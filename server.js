@@ -38,12 +38,29 @@ app.post("/", async (req, res) => {
     const prompt = req.body.prompt;
 
     const response = await openai.createCompletion({
-      model: "text-davinci-003",
-      prompt: `${prompt}`,
-      temperature: 0.7,
-      max_tokens: 200,
+      model: "gpt-3.5-turbo",
+      messages: [
+        {
+          role: "system",
+          content:
+            "You are a sports betting assistant, you provide player analysis and more",
+        },
+        {
+          role: "user",
+          content: `${prompt}`,
+        },
+      ],
+      // prompt: `${prompt}`,
+      // temperature: 0.7,
+      // max_tokens: 200,
+      // top_p: 1,
+      // frequency_penalty: 0.5,
+      // presence_penalty: 0,
+
+      temperature: 1,
+      max_tokens: 256,
       top_p: 1,
-      frequency_penalty: 0.5,
+      frequency_penalty: 0,
       presence_penalty: 0,
     });
 
