@@ -79,6 +79,49 @@ app.post("/", async (req, res) => {
   }
 });
 
+//AI prompt for best available odds route
+app.post("/best-odds", async (req, res) => {
+  try {
+    const prompt = req.body.prompt;
+
+    const response = await openai.chat.completions.create({
+      model: "gpt-3.5-turbo",
+      messages: [
+        {
+          role: "system",
+          content:
+            "You are a sports betting assistant, that recieves data a games moneyline, spread and total odds from diffrent sport books for both teams playing. you analyze the data and retune the best odds for both teams involved in the games",
+        },
+        {
+          role: "user",
+          content: `${prompt}`,
+        },
+      ],
+      temperature: 1,
+      max_tokens: 256,
+      top_p: 1,
+      frequency_penalty: 0,
+      presence_penalty: 0,
+    });
+
+    res.status(200).send({
+      bot: response.choices[0].message,
+    });
+  } catch (error) {
+    // console.log(error);
+    // res.status(500).send({ error });
+    if (error instanceof OpenAI.APIError) {
+      console.error(error.status); // e.g. 401
+      console.error(error.message); // e.g. The authentication token you passed was invalid...
+      console.error(error.code); // e.g. 'invalid_api_key'
+      console.error(error.type); // e.g. 'invalid_request_error'
+    } else {
+      // Non-API error
+      console.log(error);
+    }
+  }
+});
+
 //listen
 const port = process.env.PORT || 8000;
 app.listen(port, () => console.log(`Server is running on port ${port}`));
