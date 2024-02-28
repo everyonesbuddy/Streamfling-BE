@@ -90,7 +90,7 @@ app.post("/best-odds", async (req, res) => {
         {
           role: "system",
           content:
-            "You are a sports betting assistant, that recieves data a games moneyline, spread and total odds from diffrent sport books for both teams playing. you analyze the data and retune the best odds for both teams involved in the games",
+            "You are a sports betting assistant, that recieves data like player name, recent performance data, team data and opposition data. you analyze the data and retune a prediction based on that",
         },
         {
           role: "user",
