@@ -47,7 +47,7 @@ app.post("/", async (req, res) => {
         {
           role: "system",
           content:
-            "You are a sports betting assistant, that recieves data on players and teams. you analyze the data provided to you and make relevant sport betting picks and predictions.",
+            "You are a sports betting analyst that help coaches and scouts, perform analysis and gameplans. I will provide you some data and context to work with.",
         },
         {
           role: "user",
