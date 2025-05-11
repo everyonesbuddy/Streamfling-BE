@@ -32,7 +32,7 @@ app.use(
 //Welcome to streamfling route
 app.get("/", async (req, res) => {
   res.status(200).send({
-    message: "Hello from Sure Odd's AI",
+    message: "Hello from Sports Analyst tool",
   });
 });
 
@@ -47,7 +47,7 @@ app.post("/", async (req, res) => {
         {
           role: "system",
           content:
-            "You are a sports betting analyst that help coaches and scouts, perform analysis and gameplans. I will provide you some data and context to work with.",
+            "You are a sports analyst that help coaches and scouts, perform analysis and gameplans. I will provide you some data and context to work with.",
         },
         {
           role: "user",
